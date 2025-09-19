@@ -1,3 +1,6 @@
+hookfunction(require(game:GetService("ReplicatedStorage").Effect.Container.Death),function() end)
+hookfunction(require(game:GetService("ReplicatedStorage").Effect.Container.Respawn),function() end)
+hookfunction(require(game:GetService("ReplicatedStorage"):WaitForChild("GuideModule")).ChangeDisplayedNPC,function() end)
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
