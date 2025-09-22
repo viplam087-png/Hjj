@@ -286,6 +286,9 @@ BringMob = function(Value)
                             v.HumanoidRootPart.CanCollide = false
                             v.Humanoid.WalkSpeed = 0
                             v.Humanoid.JumpPower = 0
+                            if v.Humanoid:FindFirstChild('Animator') then
+                                v.Humanoid:FindFirstChild('Animator'):Destroy()
+                            end
                             sethiddenproperty(plr, "SimulationRadius", math.huge)
                         end
                     end
