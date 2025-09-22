@@ -287,7 +287,6 @@ BringMob = function(Value)
                             v.Humanoid.WalkSpeed = 0
                             v.Humanoid.JumpPower = 0
                             v.Humanoid:ChangeState(14)
-                            sethiddenproperty(plr, "SimulationRadius", math.huge)
                         end
                     end
                 end
