@@ -257,3 +257,60 @@ function Funcs:Attack()
     end
     Register_Hit:FireServer(unpack(args))
 end
+local plr = game.Players.LocalPlayer
+TweenObject = function(Object, Pos, Speed)
+    if Speed == nil then Speed = 350 end
+    local Distance = (Pos.Position - Object.Position).Magnitude
+    local tweenService = game:GetService("TweenService")
+    local info = TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear)
+    tween1 = tweenService:Create(Object, info, {CFrame = Pos})
+    tween1:Play()
+end
+GetMobPosition = function(EnemiesName)
+    local pos
+    local count = 0
+    for r, v in pairs(workspace.Enemies:GetChildren()) do
+        if v.Name == EnemiesName then
+            if not pos then
+                pos = v.HumanoidRootPart.Position
+            else
+                pos = pos + v.HumanoidRootPart.Position
+            end
+            count = count + 1
+        end
+    end
+    pos = pos / count
+    return pos
+end
+BringMob = function(Value)
+    if Value then
+        local ememe = game.Workspace.Enemies:GetChildren()
+        if #ememe > 0 then
+            local totalpos = {}
+            for _, v in pairs(ememe) do
+                if not totalpos[v.Name] then
+                    totalpos[v.Name] = GetMobPosition(v.Name)
+                end
+            end
+            for _, v in pairs(workspace.Enemies:GetChildren()) do
+                if v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 and v:FindFirstChild("HumanoidRootPart") then
+                    if (v.HumanoidRootPart.Position - plr.Character.HumanoidRootPart.Position).Magnitude <= 350 then
+                        for k, f in pairs(totalpos) do
+                            if k and v.Name == k and f then
+                                  Gay = CFrame.new(f.X, f.Y, f.Z)
+                                  Cac = (v.HumanoidRootPart.Position - Gay.Position).Magnitude
+                                if Cac > 3 and Cac <= 280 then
+                                    TweenObject(v.HumanoidRootPart, Gay, 300)
+                                    v.HumanoidRootPart.CanCollide = false
+                                    v.Humanoid.WalkSpeed = 0
+                                    v.Humanoid.JumpPower = 0
+                                    sethiddenproperty(plr, "SimulationRadius", math.huge)
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+end
