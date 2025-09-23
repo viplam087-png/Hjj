@@ -286,6 +286,7 @@ BringMob = function(Value)
                             v.HumanoidRootPart.CanCollide = false
                             v.Humanoid.WalkSpeed = 0
                             v.Humanoid.JumpPower = 0
+                            v.Humanoid:ChangeState(14)
                             if v.Humanoid:FindFirstChild('Animator') then
                                 v.Humanoid:FindFirstChild('Animator'):Destroy()
                             end
