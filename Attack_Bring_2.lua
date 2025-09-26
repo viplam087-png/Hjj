@@ -267,7 +267,6 @@ spawn(function()
                                     v.Humanoid.Animator:Destroy()
                                 end                                
                                 v.HumanoidRootPart.CanCollide = false
-                                v.Humanoid:ChangeState(14)
                                 sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                             end
                         end
