@@ -257,7 +257,8 @@ spawn(function()
                             end                        
                         elseif v.Name == MonFarm then
                             if (v.HumanoidRootPart.Position - PosMon.Position).Magnitude <= 300 then
-                                v.HumanoidRootPart.CFrame = PosMon                                
+                                v.HumanoidRootPart.CFrame = PosMon
+                                v.Humanoid.JumpPower = 0
                                 v.HumanoidRootPart.CanCollide = false
                                 sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                             end
