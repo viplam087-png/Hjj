@@ -251,7 +251,6 @@ spawn(function()
                     if v.Name == MonFarm and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
                         if v.Name == "Factory Staff" then
                             if (v.HumanoidRootPart.Position - PosMon.Position).Magnitude <= 300 then
-                                v.HumanoidRootPart.CanCollide = false
                                 v.HumanoidRootPart.CFrame = PosMon                                
                                 if v.Humanoid:FindFirstChild("Animator") then
                                     v.Humanoid.Animator:Destroy()
@@ -264,10 +263,8 @@ spawn(function()
                                 if v.Humanoid:FindFirstChild("Animator") then
                                     v.Humanoid.Animator:Destroy()
                                 end                                
-                                v.HumanoidRootPart.CanCollide = false
                             end
-                        end
-                        
+                        end                     
                     end
                 end
             end
