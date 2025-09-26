@@ -261,8 +261,7 @@ spawn(function()
                         elseif v.Name == MonFarm then
                             if (v.HumanoidRootPart.Position - PosMon.Position).Magnitude <= 300 then
                                 v.HumanoidRootPart.CFrame = PosMon
-                                v.Humanoid.JumpPower = 0
-                                v.Humanoid.WalkSpeed = 0                                
+                                v.Humanoid.JumpPower = 0                                
                                 if v.Humanoid:FindFirstChild("Animator") then
                                     v.Humanoid.Animator:Destroy()
                                 end                                
