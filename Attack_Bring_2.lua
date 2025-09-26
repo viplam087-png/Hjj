@@ -256,7 +256,6 @@ spawn(function()
                                 if v.Humanoid:FindFirstChild("Animator") then
                                     v.Humanoid.Animator:Destroy()
                                 end                                
-                                sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                             end                        
                         elseif v.Name == MonFarm then
                             if (v.HumanoidRootPart.Position - PosMon.Position).Magnitude <= 300 then
@@ -266,7 +265,6 @@ spawn(function()
                                     v.Humanoid.Animator:Destroy()
                                 end                                
                                 v.HumanoidRootPart.CanCollide = false
-                                sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                             end
                         end
                         
