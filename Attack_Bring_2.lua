@@ -252,7 +252,7 @@ spawn(function()
                         if v.Name == "Factory Staff" then
                             if (v.HumanoidRootPart.Position - PosMon.Position).Magnitude <= 300 then
                                 v.HumanoidRootPart.CanCollide = false
-                                v.HumanoidRootPart.CFrame = PosMon                                
+                                v.HumanoidRootPart.CFrame = PosMon
                                 if v.Humanoid:FindFirstChild("Animator") then
                                     v.Humanoid.Animator:Destroy()
                                 end
@@ -261,11 +261,10 @@ spawn(function()
                         elseif v.Name == MonFarm then
                             if (v.HumanoidRootPart.Position - PosMon.Position).Magnitude <= 300 then
                                 v.HumanoidRootPart.CFrame = PosMon
-                                v.Humanoid.JumpPower = 0                                
+                                v.HumanoidRootPart.CanCollide = false
                                 if v.Humanoid:FindFirstChild("Animator") then
                                     v.Humanoid.Animator:Destroy()
                                 end
-                                v.HumanoidRootPart.CanCollide = false
                                 sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                             end
                         end                     
