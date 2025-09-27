@@ -253,18 +253,14 @@ spawn(function()
                             if (v.HumanoidRootPart.Position - PosMon.Position).Magnitude <= 300 then
                                 v.HumanoidRootPart.CanCollide = false
                                 v.HumanoidRootPart.CFrame = PosMon
-                                if v.Humanoid:FindFirstChild("Animator") then
-                                    v.Humanoid.Animator:Destroy()
-                                end
                                 sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                             end                        
                         elseif v.Name == MonFarm then
                             if (v.HumanoidRootPart.Position - PosMon.Position).Magnitude <= 300 then
                                 v.HumanoidRootPart.CFrame = PosMon
+                                v.Humanoid.WalkSpeed = 0
+                                v.Humanoid.JumpPower = 0
                                 v.HumanoidRootPart.CanCollide = false
-                                if v.Humanoid:FindFirstChild("Animator") then
-                                    v.Humanoid.Animator:Destroy()
-                                end
                                 sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                             end
                         end                     
