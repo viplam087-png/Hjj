@@ -250,7 +250,7 @@ spawn(function()
                 if getgenv().BringMob and StartBringMob then
                     if v.Name == MonFarm and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
                         if v.Name == "Factory Staff" then
-                            if (v.HumanoidRootPart.Position - PosMon.Position).Magnitude <= getgenv().BringMode then
+                            if (v.HumanoidRootPart.Position - PosMon.Position).Magnitude <= 350 then
                                 v.HumanoidRootPart.CanCollide = false
                                 v.HumanoidRootPart.CFrame = PosMon
                                 if v.Humanoid:FindFirstChild("Animator") then
@@ -259,7 +259,7 @@ spawn(function()
                                 sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                             end                        
                         elseif v.Name == MonFarm then
-                            if (v.HumanoidRootPart.Position - PosMon.Position).Magnitude <= getgenv().BringMode then
+                            if (v.HumanoidRootPart.Position - PosMon.Position).Magnitude <= 350 then
                                 v.HumanoidRootPart.CFrame = PosMon
                                 v.v.Humanoid.WalkSpeed = 1
                                 v.Humanoid.JumpPower = 0
