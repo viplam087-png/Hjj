@@ -261,7 +261,7 @@ spawn(function()
                         elseif v.Name == MonFarm then
                             if (v.HumanoidRootPart.Position - PosMon.Position).Magnitude <= getgenv().BringMode then
                                 v.HumanoidRootPart.CFrame = PosMon
-                                v.Humanoid.WalkSpeed = 20
+                                v.v.Humanoid.WalkSpeed = 16
                                 v.Humanoid.JumpPower = 0
                                 v.HumanoidRootPart.CanCollide = false
                                 if v.Humanoid:FindFirstChild("Animator") then
