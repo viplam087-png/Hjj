@@ -264,7 +264,6 @@ spawn(function()
                                 v.HumanoidRootPart.CFrame = PosMon
                                 v.HumanoidRootPart.CanCollide = false
                                 v.Humanoid.JumpPower = 0
-                                v.Humanoid.WalkSpeed = 1
                                 if v.Humanoid:FindFirstChild("Animator") then
                                     v.Humanoid.Animator:Destroy()
                                 end
