@@ -263,6 +263,7 @@ spawn(function()
                             if (v.HumanoidRootPart.Position - PosMon.Position).Magnitude <= getgenv().BringMode then
                                 v.HumanoidRootPart.CFrame = PosMon
                                 v.HumanoidRootPart.CanCollide = false
+                                v.Humanoid.JumpPower = 1
                                 v.Humanoid.JumpPower = 0
                                 if v.Humanoid:FindFirstChild("Animator") then
                                     v.Humanoid.Animator:Destroy()
