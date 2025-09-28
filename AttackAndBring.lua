@@ -1,4 +1,3 @@
-require(game.ReplicatedStorage.Util.CameraShaker):Stop()
 hookfunction(require(game:GetService("ReplicatedStorage").Effect.Container.Death), function() end)
 hookfunction(require(game:GetService("ReplicatedStorage").Effect.Container.Respawn), function() end)
 hookfunction(require(game:GetService("ReplicatedStorage"):WaitForChild("GuideModule")).ChangeDisplayedNPC, function() end)
@@ -263,7 +262,7 @@ spawn(function()
                             if (v.HumanoidRootPart.Position - PosMon.Position).Magnitude <= getgenv().BringMode then
                                 v.HumanoidRootPart.CFrame = PosMon
                                 v.HumanoidRootPart.CanCollide = false
-                                v.Humanoid.JumpPower = 1
+                                v.Humanoid.WalkSpeed = 0
                                 v.Humanoid.JumpPower = 0
                                 if v.Humanoid:FindFirstChild("Animator") then
                                     v.Humanoid.Animator:Destroy()
