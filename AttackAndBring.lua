@@ -252,7 +252,7 @@ BringEnemy = function()
         if v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
             if (v.PrimaryPart.Position - PosMon).Magnitude <= getgenv().BringMode then
                 v.PrimaryPart.CFrame = CFrame.new(PosMon)
-                v.PrimaryPart.CanCollide = true
+                v.PrimaryPart.CanCollide = false
                 v.Humanoid.WalkSpeed = 0
                 v.Humanoid.JumpPower = 0                
                 if v.Humanoid:FindFirstChild("Animator") then
