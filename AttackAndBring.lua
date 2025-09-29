@@ -243,36 +243,23 @@ function Funcs:Attack()
     end
     Register_Hit:FireServer(unpack(args))
 end
-spawn(function()
-    while wait() do
-        pcall(function()
-            for i, v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                if getgenv().BringMob and StartBringMob then
-                    if v.Name == MonFarm and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
-                        if v.Name == "Factory Staff" then
-                            if (v.HumanoidRootPart.Position - PosMon.Position).Magnitude <= getgenv().BringMode then
-                                v.HumanoidRootPart.CanCollide = false
-                                v.HumanoidRootPart.CFrame = PosMon
-                                if v.Humanoid:FindFirstChild("Animator") then
-                                    v.Humanoid.Animator:Destroy()
-                                end
-                                sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                            end
-                        elseif v.Name == MonFarm then
-                            if (v.HumanoidRootPart.Position - PosMon.Position).Magnitude <= getgenv().BringMode then
-                                v.HumanoidRootPart.CFrame = PosMon
-                                v.HumanoidRootPart.CanCollide = false
-                                v.Humanoid.WalkSpeed = 0
-                                v.Humanoid.JumpPower = 0
-                                if v.Humanoid:FindFirstChild("Animator") then
-                                    v.Humanoid.Animator:Destroy()
-                                end
-                                sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                            end
-                        end
-                    end
-                end
-            end
-        end)
+local plr = game.Players.LocalPlayer
+BringEnemy = function()
+    if not getgenv().BringMob then 
+        return 
     end
-end)
+    for _, v in pairs(workspace.Enemies:GetChildren()) do
+        if v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+            if (v.PrimaryPart.Position - PosMon).Magnitude <= getgenv().BringMode then
+                v.PrimaryPart.CFrame = CFrame.new(PosMon)
+                v.PrimaryPart.CanCollide = true
+                v.Humanoid.WalkSpeed = 0
+                v.Humanoid.JumpPower = 0                
+                if v.Humanoid:FindFirstChild("Animator") then
+                    v.Humanoid.Animator:Destroy()
+                end
+                plr.SimulationRadius = math.huge
+            end
+        end
+    end
+end
